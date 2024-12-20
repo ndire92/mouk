@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block content %}
+<h2>Mon compte</h2>
+<p>Nom: {{ user.first_name }} {{ user.last_name }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Adresse: {{ customer.address }}</p>
+<p>Téléphone: {{ customer.mobile }}</p>
+<a href="{% url 'logout' %}">Se déconnecter</a>
+{% endblock %}

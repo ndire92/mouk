@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <h1>Produits dans{{ category.name }}</h1>
+        <a href="{% url 'category_list' %}">Retour aux catégories</a>
+    
+    <main>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <h2>{{ product.name }}</h2>
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="150">
+                    <p>{{ product.price }} FCFA</p>
+                    <a href="{% url 'product_detail' product.id %}">Voir les détails</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    {% endblock %}

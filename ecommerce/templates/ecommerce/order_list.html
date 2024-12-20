@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Commandes{% endblock %}
+
+{% block content %}
+<h2>Vos commandes</h2>
+{% if orders %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Statut</th>
+        <th>Date</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.product.name }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.ordered_at }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Aucune commande passée.</p>
+{% endif %}
+{% endblock %}
